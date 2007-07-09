@@ -2,5 +2,6 @@ Changes
 Makefile.PL
 MANIFEST
 README
-Test.pl
-Latin.pm
+t/Text-Statistics-Latin.t
+lib/Text/Statistics/Latin.pm
+META.yml                                 Module meta-data (added by MakeMaker)

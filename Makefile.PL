@@ -5,8 +5,8 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME              => 'Text::Statistics::Latin',
     VERSION_FROM      => 'lib/Text/Statistics/Latin.pm', # finds $VERSION
-    PREREQ_PM         => {Text::ParseWords => 3.1}, 
+    PREREQ_PM         => {Text::ParseWords => 3.1,}, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Text/Statistics/Latin.pm', # retrieve abstract from module
-       AUTHOR         => 'Rodrigo Panchiniak Fernandes <fernandes@cpan.org') : ()),
+       AUTHOR         => 'Rdorigo Panchiniak Fernandes <fernandes@cpan.org>') : ()),
 );

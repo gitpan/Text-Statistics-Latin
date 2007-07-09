@@ -1,26 +1,37 @@
 package Text::Statistics::Latin;
 
-require Exporter;
-our @ISA = qw(Exporter);
-our @EXPORT_OK = qw();
 
-# $Id: Latin.pm,v 1.0 2007/06/12 09:17:36 rpfernandes Exp $
-#Copyright (c) 2007 Rodrigo Panchiniak Fernandes. All rights reserved.
-#
-# 
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the same terms as Perl itself.
+use strict;
+no warnings;
+
+require Exporter;
+
+our @ISA = qw(Exporter);
+
 =head1 NAME
 
-Text::Statistics::Latin - performs corpora statistical analyses
+Text::Statistics::Latin - Performs statistical corpora analysis
+
+=head1 VERSION
+
+Version 0.04
+
+=cut
+
+our $VERSION = '0.04';
+use 5.006;
+use Text::ParseWords;
+use utf8;
+use base 'Exporter';
+
+our @EXPORT = qw(LATIN);
+our @words;
+our $tokens;
+our @out11;
+our @outtott;
+our $tokensgeral;
 
 =head1 SYNOPSIS
-
-  use CText::Statistics::Latin; 
-  &Text::Statistics::Latin:LATIN();
-
-=head1 DESCRIPTION
 
 Text::Statistics::Latin creates a seven column CSV file output with one line each
 token per text given as input a corpus that files names follows '
@@ -38,26 +49,16 @@ Columns stores statistical information:
 Main output file name is '1 (n + 5).txt' and it is stored in the same directory as
 the corpus itself, toghether with residual files on each input file with .txu and .txv extensions.
 
-This code was written under CAPES BEX-09323-5
-
-=head2 Methods
-
 Example:
 
-#!/usr/bin/perl 
-use strict;
-use Text::Statistics::Latin;
+    use Text::Statistics::Latin;
+    &LATIN("4"); #3 (4-1) texts will be analised.
 
-&Text::Statistics::Latin::LATIN("5");     #4 files (5 - 1) are analysed.
+=head1 EXPORT
 
-=over
+    &LATIN();
+
 =cut
-use 5.006;
-our $VERSION = '0.02';
-use Text::ParseWords;
-use utf8;
-
-use vars qw($VERSION @ISA);
 
 sub LATIN{
     
@@ -327,5 +328,58 @@ sub LATIN{
     }
     print "\n", "fim de programa";
 }
+=head1 AUTHOR
 
-1;
+Rodrigo Panchiniak Fernandes, C<< <fernandes at cpan.org> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to
+C<bug-text-statistics-latin at rt.cpan.org>, or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Text-Statistics-Latin>.
+I will be notified, and then you'll automatically be notified of progress on
+your bug as I make changes.
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Text::Statistics::Latin
+
+You can also look for information at:
+
+=over 4
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/Text-Statistics-Latin>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/Text-Statistics-Latin>
+
+=item * RT: CPAN's request tracker
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Text-Statistics-Latin>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/Text-Statistics-Latin>
+
+=back
+
+=head1 ACKNOWLEDGEMENTS
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2007 Rodrigo Panchiniak Fernandes, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+This code was written under CAPES BEX-09323-5
+=cut
+
+1; # End of Text::Statistics::Latin
+__END__
+
